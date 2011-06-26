@@ -4,18 +4,50 @@
   <head>
     <title>Test Slider</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/prototype.js"></script>
-    <script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
-    <script type="text/javascript" src="js/lightbox.js"></script>
+    <!-- <script type="text/javascript" src="js/prototype.js"></script> -->
+    <!-- <script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script> -->
+    <!-- <script type="text/javascript" src="js/lightbox.js"></script> -->
+    <script type="text/javascript" src="http://simplemodal.googlecode.com/files/jquery.simplemodal-1.4.1.js"></script>
     <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
     <h1>
       HI!
     </h1>
+
+    <style type="text/css">
+      #simplemodal-overlay {
+        background-color: grey;
+      }
+
+      .test {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        width: 400px;
+      }
+
+      .show-modal {
+        color: blue;
+      }
+    </style>
+    
   </head>
 
   <body>
-    <a href="images/image-1.jpg" rel="lightbox[roadtrip]">image #1</a>
-    <a href="images/image-2.png" rel="lightbox[roadtrip]">image #2</a>
+    <div class='show-modal'>
+      Click Me
+    </div> 
+    <div class='test' style='display: none'>
+      <img class='google-logo' src='http://www.google.com/images/logos/ps_logo2.png'></img>
+      <p>This is a paragraph inside a div.</p>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        $('.show-modal').click(function(target) {
+          $('.test').modal({overlayClose: true, escClose: true});
+        });
+      });
+    </script>
   </body>
 
 </html>
